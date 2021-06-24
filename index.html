@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- normalize -->
+    <link
+      rel="stylesheet"
+      href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
+    />
+    <!-- tailwindcss -->
+    <link rel="stylesheet" href="src/css/tailwind.css" />
+    <!-- Own Style -->
+    <link rel="stylesheet" href="src/css/style.css" />
+    <title>Quiz Game</title>
+  </head>
+  <body>
+    <main class="flex h-screen justify-center items-center">
+      <!-- login -->
+      <section
+        class="section-login bg-white mx-5 rounded-3xl justify-center px-5"
+      >
+        <div class="text-center">
+          <h1 class="text-3xl py-8 font-bold text-yellow-500">
+            Quiz <span class="text-blue-600">Game</span>
+          </h1>
+          <p class="py-6">Para comenzar ingrese un nombre de usuario</p>
+          <form action="#" id="user-form" class="flex flex-col">
+            <input
+              type="text"
+              name="username"
+              id="username"
+              placeholder="Username"
+              class="bg-gray-200 rounded-2xl pl-4 m-1 p-2 font-bold"
+            />
+            <input
+              type="submit"
+              value="Start"
+              class="
+                my-12
+                mx-16
+                py-2
+                rounded-3xl
+                bg-blue-500
+                text-white
+                hover:bg-yellow-500
+                cursor-pointer
+              "
+            />
+          </form>
+        </div>
+      </section>
+
+      <!-- categories -->
+      <section
+        class="section-categories bg-white mx-5 rounded-3xl justify-center px-5"
+      >
+        <h2 class="text-center mb-2">Escoja una categoria</h2>
+        <div class="text-center grid grid-cols-2">
+          <button
+            class="bg-yellow-500 py-8 m-2 rounded-xl hover:bg-red-400"
+            id="game-category"
+          >
+            Juegos
+          </button>
+          <button
+            class="bg-yellow-800 py-8 m-2 rounded-xl hover:bg-red-400"
+            id="geography-category"
+          >
+            Geografía
+          </button>
+          <button
+            class="bg-blue-500 py-8 m-2 rounded-xl hover:bg-red-400"
+            id="mathematics-category"
+          >
+            Matematica
+          </button>
+          <button
+            class="bg-indigo-700 py-8 m-2 rounded-xl hover:bg-red-400"
+            id="history-category"
+          >
+            Historia
+          </button>
+        </div>
+      </section>
+
+      <!-- questions -->
+      <section class="section-questions">
+        <div class="m-2">
+          <h1 class="uppercase text-2xl text-white font-bold md:text-4xl">
+            Category
+          </h1>
+          <div class="bg-white rounded-2xl text-lg md:text-2xl p-3">
+            <h2 id="question" class="text-blue-900 font-bold"></h2>
+            <div id="answers" class="flex flex-col"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- results -->
+      <section class="section-result w-80">
+        <div
+          class="
+            bg-white
+            rounded-2xl
+            text-lg
+            md:text-2xl
+            text-blue-900
+            flex flex-col
+            text-center
+          "
+        >
+          <img src="src/img/undraw_winners_ao2o 2.svg" alt="win" class="p-8" />
+          <h2 class="font-bold text-5xl">Results</h2>
+          <p class="text-base p-8">
+            you got
+            <span id="score" class="text-green-400 text-4xl">0</span>
+            correct answers
+          </p>
+          <button
+            class="
+              border-2 border-blue-800
+              rounded-2xl
+              text-lg
+              m-8
+              hover:bg-yellow-500 hover:text-white hover:border-yellow-500
+            "
+          >
+            Try again
+          </button>
+        </div>
+        <div class="bg-white rounded-2xl">
+          <h2>Top Players</h2>
+        </div>
+      </section>
+    </main>
+
+    <footer class="absolute bottom-0 text-center w-full">
+      By Sergio Diestra &copy; 2021
+    </footer>
+
+    <!-- JQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+    <!-- Own Script -->
+    <script src="src/js/index.js" type="module"></script>
+    <script src="src/js/script.js"></script>
+  </body>
+</html>

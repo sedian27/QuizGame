@@ -1,0 +1,91 @@
+{
+    "preguntas" : [
+        "¿En qué país puedes visitar Machu Picchu?",
+        "¿Cuál es la nación más poblada de América del Sur?",
+        "¿Qué nación regula la escalada en el Monte Everest?",
+        "¿En qué país europeo está ubicada Transilvania?",
+        "¿Qué nación asiática tiene la segunda mayor población de cualquier país del mundo?",
+        "¿Qué masa de agua separa a África de Europa?",
+        "Si excluyes a Rusia, ¿qué país tiene la población más grande de Europa?",
+        "El lago Titicaca se encuentra en la frontera entre estas dos naciones.",
+        "¿Cuál es el país más grande del mundo en términos de superficie terrestre?",
+        "Andorra está ubicada entre estas dos naciones europeas:"
+    ],
+
+    "respuestas" : {
+        "¿En qué país puedes visitar Machu Picchu?" : [
+            "Perú",
+            "Brasil",
+            "Chile",
+            "Argentina"
+        ],
+        "¿Cuál es la nación más poblada de América del Sur?" : [
+            "Perú",
+            "Brasil",
+            "Chile",
+            "Argentina"
+        ],
+        "¿Qué nación regula la escalada en el Monte Everest?" : [
+            "Nepal",
+            "Japón",
+            "Pakistán",
+            "China"
+        ],
+        "¿En qué país europeo está ubicada Transilvania?" : [
+            "Polonia",
+            "Bulgaria",
+            "Rumania",
+            "Ucrania"
+        ],
+        "¿Qué nación asiática tiene la segunda mayor población de cualquier país del mundo?" : [
+            "Japón",
+            "India",
+            "Pakistán",
+            "Irán"
+        ],
+        "¿Qué masa de agua separa a África de Europa?" : [
+            "Estrecho de Gibraltar",
+            "Mar de África",
+            "Cabo de buena esperanza",
+            "Mar Balear"
+        ],
+        "Si excluyes a Rusia, ¿qué país tiene la población más grande de Europa?" : [
+            "Bélgica",
+            "Alemania",
+            "Francia",
+            "Irán"
+        ],
+        "El lago Titicaca se encuentra en la frontera entre estas dos naciones." : [
+            "Paraguay y Bolivia",
+            "Brasil y Chile",
+            "Bolivia y Perú",
+            "Uruguay y Paraguay"
+        ],
+        "¿Cuál es el país más grande del mundo en términos de superficie terrestre?" : [
+            "Estados Unidos",
+            "China",
+            "Rusia",
+            "Brasil"
+        ],
+        "Andorra está ubicada entre estas dos naciones europeas:" : [
+            "España y Francia",
+            "Italia y Suiza",
+            "Francia y Suiza",
+            "España y Portugal"
+        ]
+    },
+
+    "correcto" : {
+        "¿En qué país puedes visitar Machu Picchu?" : "Perú",
+        "¿Cuál es la nación más poblada de América del Sur?" : "Brasil",
+        "¿Qué nación regula la escalada en el Monte Everest?" : "Nepal",
+        "¿En qué país europeo está ubicada Transilvania?" : "Rumania",
+        "¿Qué nación asiática tiene la segunda mayor población de cualquier país del mundo?" : "India",
+        "¿Qué masa de agua separa a África de Europa?" : "Estrecho de Gibraltar",
+        "Si excluyes a Rusia, ¿qué país tiene la población más grande de Europa?" : "Alemania",
+        "El lago Titicaca se encuentra en la frontera entre estas dos naciones." : "Bolivia y Perú",
+        "¿Cuál es el país más grande del mundo en términos de superficie terrestre?" : "Rusia",
+        "Andorra está ubicada entre estas dos naciones europeas:" : "España y Francia"
+    }
+
+}
