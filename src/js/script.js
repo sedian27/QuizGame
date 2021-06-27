@@ -1,10 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const question = document.getElementById("question");
-  const answers = document.getElementById("answers");
-  const totalScore = document.getElementById("score");
-  const json = "src/questions.json";
-  let score = 0;
-  let i = 0;
+  const login = $(".section-login"),
+    categories = $(".section-categories"),
+    questions = $(".section-questions"),
+    result = $(".section-result"),
+    category = $("#category"),
+    question = $("#question"),
+    answers = document.getElementById("answers"),
+    gameJson = "src/game.json";
 
   // Randomize the arr
   let arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -12,33 +14,54 @@ document.addEventListener("DOMContentLoaded", () => {
     return Math.random() - 0.5;
   });
 
-  showQuestion();
+  categories.hide();
+  questions.hide();
+  result.hide();
 
-  function showQuestion() {
+  const userForm = $("#user-form");
+
+  userForm.on("change", () => {
+    user = $("#username").val();
+  });
+  userForm.on("submit", showCategories);
+
+  function showCategories(e) {
+    e.preventDefault();
+    login.fadeOut();
+    categories.fadeIn();
+    $("#game-category").on("click", loadGameQuestions);
+    $("#geography-category").on("click", loadGeographyQuestions);
+    $("#mathematics-category").on("click", loadMathematicsQuestions);
+    $("#history-category").on("click", loadHistoryQuestions);
+  }
+
+  function loadGameQuestions() {}
+  function loadGeographyQuestions() {
+    let questionNumber;
     if (arr.length > 0) {
-      let questionNumber = arr.shift();
-      searchQuestion(questionNumber);
-      console.log(questionNumber, i++);
+      questionNumber = arr.shift();
     } else {
       totalScore.innerText = score;
     }
+    fetch(gameJson)
+      .then((res) => res.json())
+      .then((data) =>
+        loadQuestion(
+          data.geography[questionNumber],
+          data.geographyAnswers[questionNumber]
+        )
+      );
+    categories.fadeOut();
+    questions.fadeIn();
   }
 
-  function searchQuestion(questionNumber) {
-    const xhr = new XMLHttpRequest();
-    xhr.open("GET", json);
-    xhr.send();
-    xhr.onload = () => {
-      const banco = JSON.parse(xhr.responseText);
-      let pregunta = banco["preguntas"][questionNumber];
-      let respuestas = banco["respuestas"][pregunta];
+  function loadQuestion(questionData, answersData) {
+    category.text("Geografía");
+    question.text(questionData);
 
-      question.innerText = pregunta;
-      answers.innerText = "";
-
-      for (let r in respuestas) {
-        let letras = ["A", "B", "C", "D"];
-        answers.innerHTML += `<button
+    for (let r in answersData) {
+      let letter = ["A", "B", "C", "D"];
+      answers.innerHTML += `<button
             class="
               border
               mt-6
@@ -54,45 +77,14 @@ document.addEventListener("DOMContentLoaded", () => {
             "
             id="${r}"
           >
-            <span class="pl-3 text-2xl">${letras[r]}</span>
-            <span class="pl-12">${respuestas[r]}</span>
+            <span class="pl-3 text-2xl">${letter[r]}</span>
+            <span class="pl-12">${answersData[r]}</span>
           </button>`;
-      }
-    };
+    }
   }
 
-  // Verification if the answer is correct
-  function verify(id, question) {
-    const answer = document.getElementById(id);
-    const xhr = new XMLHttpRequest();
-    xhr.open("GET", json);
-    xhr.send();
-    xhr.onload = () => {
-      let json = JSON.parse(xhr.responseText);
-      if (json["respuestas"][question][id] === json["correcto"][question]) {
-        answer.classList.remove("text-indigo-400");
-        answer.classList.remove("border-indigo-300");
-        answer.classList.remove("hover:bg-yellow-400");
-        answer.classList.remove("hover:text-white");
-        answer.classList.remove("hover:border-yellow-400");
-        answer.className += " bg-green-300 text-white";
-        setTimeout(() => {
-          score++;
-          showQuestion();
-        }, 500);
-      } else {
-        answer.classList.remove("text-indigo-400");
-        answer.classList.remove("border-indigo-300");
-        answer.classList.remove("hover:bg-yellow-400");
-        answer.classList.remove("hover:text-white");
-        answer.classList.remove("hover:border-yellow-400");
-        answer.className += " bg-red-600 text-white";
-        setTimeout(() => {
-          showQuestion();
-        }, 500);
-      }
-    };
-  }
+  function loadMathematicsQuestions() {}
+  function loadHistoryQuestions() {}
 
   answers.addEventListener("click", (e) => {
     let id = "";

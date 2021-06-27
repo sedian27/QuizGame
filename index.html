@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -16,7 +16,7 @@
     <title>Quiz Game</title>
   </head>
   <body>
-    <main class="flex h-screen justify-center items-center">
+    <main class="flex h-screen justify-center items-center" id="main">
       <!-- login -->
       <section
         class="section-login bg-white mx-5 rounded-3xl justify-center px-5"
@@ -25,13 +25,14 @@
           <h1 class="text-3xl py-8 font-bold text-yellow-500">
             Quiz <span class="text-blue-600">Game</span>
           </h1>
-          <p class="py-6">Para comenzar ingrese un nombre de usuario</p>
+          <p class="py-6">Ingrese un nombre de usuario</p>
           <form action="#" id="user-form" class="flex flex-col">
             <input
               type="text"
               name="username"
               id="username"
               placeholder="Username"
+              required
               class="bg-gray-200 rounded-2xl pl-4 m-1 p-2 font-bold"
             />
             <input
@@ -88,9 +89,10 @@
       <!-- questions -->
       <section class="section-questions">
         <div class="m-2">
-          <h1 class="uppercase text-2xl text-white font-bold md:text-4xl">
-            Category
-          </h1>
+          <h1
+            class="uppercase text-2xl text-white font-bold md:text-4xl"
+            id="category"
+          ></h1>
           <div class="bg-white rounded-2xl text-lg md:text-2xl p-3">
             <h2 id="question" class="text-blue-900 font-bold"></h2>
             <div id="answers" class="flex flex-col"></div>
@@ -99,7 +101,7 @@
       </section>
 
       <!-- results -->
-      <section class="section-result w-80">
+      <section class="section-result flex justify-center items-stretch">
         <div
           class="
             bg-white
@@ -130,13 +132,14 @@
             Try again
           </button>
         </div>
-        <div class="bg-white rounded-2xl">
+        <!-- Ranking -->
+        <div class="bg-white rounded-2xl mx-5">
           <h2>Top Players</h2>
         </div>
       </section>
     </main>
 
-    <footer class="absolute bottom-0 text-center w-full">
+    <footer class="absolute bottom-0 text-center w-full text-white">
       By Sergio Diestra &copy; 2021
     </footer>
 
@@ -147,7 +150,6 @@
       crossorigin="anonymous"
     ></script>
     <!-- Own Script -->
-    <script src="src/js/index.js" type="module"></script>
     <script src="src/js/script.js"></script>
   </body>
 </html>
