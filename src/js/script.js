@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
               name="username"
               id="username"
               placeholder="Username"
+              maxlength="10"
               required
               class="bg-gray-200 rounded-2xl pl-4 m-1 p-2 font-bold"
             />
@@ -88,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
             class="uppercase text-2xl text-white font-bold md:text-4xl"
             id="category"
           ></h1>
-          <div class="bg-white rounded-2xl text-lg md:text-2xl p-3">
+          <div class="bg-white rounded-2xl text-lg md:text-2xl p-3 pt-16 w-29 h-35">
             <h2 id="question" class="text-blue-900 font-bold"></h2>
             <div id="answers" class="flex flex-col"></div>
           </div>
@@ -106,35 +107,59 @@ document.addEventListener("DOMContentLoaded", () => {
             text-blue-900
             flex flex-col
             text-center
+            w-29 
+            h-35
           "
         >
           <img src="src/img/undraw_winners_ao2o 2.svg" alt="win" class="p-8" />
           <h2 class="font-bold text-5xl">Results</h2>
-          <p class="text-base p-8">
-            ${user}
-            <span id="score" class="text-green-400 text-4xl">${score}</span>
-            correct answers
+          <p class="text-base p-8" id="end-message">
+            
           </p>
-          <button
+          <a
+            href="./"
             class="
               border-2 border-blue-800
               rounded-2xl
               text-lg
               m-8
+              py-3
               hover:bg-yellow-500 hover:text-white hover:border-yellow-500
             "
           >
             Try again
-          </button>
+          </a>
         </div>
-        <div class="bg-white rounded-2xl mx-5">
-          <h2>Top Players</h2>
+        <div class="bg-white rounded-2xl mx-5 w-29 h-35 text-center">
+          <h2 class="text-yellow-500 text-4xl p-4 font-bold">Leaderboard</h2>
+          <table class="w-full">
+            <thead>
+              <tr>
+                <th class="w-1/2 text-3xl text-black">Users</th>
+                <th class="w-1/2 text-3xl text-black">Score</th>
+              </tr>
+            </thead>
+            <tbody class="text-2xl text-blue-500" id="leaderboard">
+            </tbody>
+          </table>
         </div>
       </section>
-      
       `;
 
   main.html(sectionLogin);
+
+  // Firebase
+  const firebaseConfig = {
+    apiKey: "AIzaSyBvZoDdmEnze79430mvrhrSOAz1Yi0RXuE",
+    authDomain: "quiz-game-2e376.firebaseapp.com",
+    projectId: "quiz-game-2e376",
+    storageBucket: "quiz-game-2e376.appspot.com",
+    messagingSenderId: "831277040023",
+    appId: "1:831277040023:web:7d11d8998fc43159b404d2",
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  let db = firebase.firestore();
 
   // Randomize questions
   arr = arr.sort(() => {
@@ -161,14 +186,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function showSection(section) {
-    if (section === "sectionResultTest") {
-      section();
-    } else {
-      main.fadeOut();
-      setTimeout(() => {
-        main.html(section).fadeIn();
-      }, 500);
-    }
+    main.fadeOut();
+    setTimeout(() => {
+      main.html(section).fadeIn();
+    }, 500);
   }
 
   // Get the category and load the questions.
@@ -188,12 +209,16 @@ document.addEventListener("DOMContentLoaded", () => {
     if (arr.length > 0) {
       quiz(categoryName, arr.shift());
     } else {
-      showSection(sectionResultTest);
-      console.log(user, score);
+      toFirebase();
+      showSection(sectionResult);
+      setTimeout(() => {
+        readFirebase();
+      }, 100);
     }
+    console.clear();
   }
 
-  // Laod the Questino and answers.
+  // Load the Questions and answers.
   function quiz(category, quizNumber) {
     getData().then((data) => {
       const question = data[category][quizNumber];
@@ -268,48 +293,35 @@ document.addEventListener("DOMContentLoaded", () => {
         loadQuiz();
       }, 500);
     }
-    console.log(selected, question, correct);
   }
 
-  function sectionResultTest() {
-    const html = `
-      <section class="section-result flex justify-center items-stretch">
-        <div
-          class="
-            bg-white
-            rounded-2xl
-            text-lg
-            md:text-2xl
-            text-blue-900
-            flex flex-col
-            text-center
-          "
-        >
-          <img src="src/img/undraw_winners_ao2o 2.svg" alt="win" class="p-8" />
-          <h2 class="font-bold text-5xl">Results</h2>
-          <p class="text-base p-8">
-            ${user}
-            <span id="score" class="text-green-400 text-4xl">${score}</span>
-            correct answers
-          </p>
-          <a
-            href="./"
-            class="
-              border-2 border-blue-800
-              rounded-2xl
-              text-lg
-              m-8
-              hover:bg-yellow-500 hover:text-white hover:border-yellow-500
-            "
-          >
-            Try again
-          </a>
-        </div>
-        <div class="bg-white rounded-2xl mx-5">
-          <h2>Top Players</h2>
-        </div>
-      </section>
+  // Send to Firebase
+  function toFirebase() {
+    db.collection(categoryName).doc().set({
+      user,
+      score,
+    });
+  }
+
+  // Get data of the Firebase
+  async function readFirebase() {
+    let html = "";
+    const querySnapshot = await db
+      .collection(categoryName)
+      .orderBy("score", "desc")
+      .limit(10)
+      .get();
+    querySnapshot.forEach((doc) => {
+      html += `
+      <tr>
+        <td class="py-1">${doc.data().user}</td>
+        <td class="text-red-500">${doc.data().score}</td>
+      </tr>
       `;
-    main.html(html).fadeIn();
+    });
+    $("#leaderboard").html(html);
+    $("#end-message").html(`
+    ${user} <span class="text-green-400 text-4xl">${score}</span>
+            correct answers`);
   }
 });
