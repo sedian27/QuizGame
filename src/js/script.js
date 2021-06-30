@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <h1 class="text-3xl py-8 font-bold text-yellow-500">
             Quiz <span class="text-blue-600">Game</span>
           </h1>
-          <p class="py-6">Ingrese un nombre de usuario</p>
+          <p class="py-6">Pleases insert your username</p>
           <form action="#" id="user-form" class="flex flex-col">
             <input
               type="text"
@@ -53,31 +53,31 @@ document.addEventListener("DOMContentLoaded", () => {
     <section
         class="section-categories bg-white mx-5 rounded-3xl justify-center px-5"
       >
-        <h2 class="text-center mb-2">Escoja una categoria</h2>
+        <h2 class="text-center mb-2">Select category</h2>
         <div class="text-center grid grid-cols-2" id="buttons">
           <button
             class="bg-yellow-500 py-8 m-2 rounded-xl hover:bg-red-400"
-            id="game"
+            id="games"
           >
-            Juegos
+            Games
           </button>
           <button
             class="bg-yellow-800 py-8 m-2 rounded-xl hover:bg-red-400"
             id="geography"
           >
-            Geografía
+            Geography
           </button>
           <button
             class="bg-blue-500 py-8 m-2 rounded-xl hover:bg-red-400"
             id="mathematics"
           >
-            Matematica
+            Mathematics
           </button>
           <button
             class="bg-indigo-700 py-8 m-2 rounded-xl hover:bg-red-400"
             id="history"
           >
-            Historia
+            History
           </button>
         </div>
       </section>
@@ -211,9 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       toFirebase();
       showSection(sectionResult);
-      setTimeout(() => {
-        readFirebase();
-      }, 100);
+      readFirebase();
     }
     console.clear();
   }
@@ -221,9 +219,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // Load the Questions and answers.
   function quiz(category, quizNumber) {
     getData().then((data) => {
-      const question = data[category][quizNumber];
+      const question = data.categories[category][quizNumber];
       $("#question").text(question);
-      const answers = data[category + "Answers"][quizNumber];
+      const answers = data.answers[category][quizNumber];
       let answersHtml = "";
 
       for (let index in answers) {
@@ -259,17 +257,17 @@ document.addEventListener("DOMContentLoaded", () => {
         if (e.target.nodeName === "SPAN") {
           selected = e.target.parentNode.getAttribute("id");
           // Send data to verify
-          verify(selected, question, data["correctAnswers"][question]);
+          verify(selected, data.correctAnswers[category][quizNumber]);
         } else if (e.target.nodeName === "BUTTON") {
           selected = e.target.getAttribute("id");
           // Send data to verify
-          verify(selected, question, data["correctAnswers"][question]);
+          verify(selected, data.correctAnswers[category][quizNumber]);
         }
       });
     });
   }
   // Function to verify the answers if correct score++ else nothing
-  function verify(selected, question, correct) {
+  function verify(selected, correct) {
     const answer = document.getElementById(selected);
     if (selected === correct) {
       answer.classList.remove("text-indigo-400");

@@ -17,7 +17,20 @@
         ]
     },
 
-    "geography" : [
+    "categories" :{
+        "games" : [
+        "who is the face of nintedo?",
+        "which nintendo game involes fighting and nintendo characters?",
+        "Who is Nintendos main rival?",
+        "What was the name of Nintendo's least successful home console?",
+        "Which of the following is NOT a kirby game?",
+        "How long had Nintendo wanted Yoshi to be in the Mario series?",
+        "Which character is not a Mario character? ",
+        "Which game system was created first? ",
+        "What was the most popular game in 2018",
+        "When did the first Call Of Duty come out"
+        ],
+        "geography" : [
         "¿En qué país puedes visitar Machu Picchu?",
         "¿Cuál es la nación más poblada de América del Sur?",
         "¿Qué nación regula la escalada en el Monte Everest?",
@@ -28,9 +41,34 @@
         "El lago Titicaca se encuentra en la frontera entre estas dos naciones.",
         "¿Cuál es el país más grande del mundo en términos de superficie terrestre?",
         "Andorra está ubicada entre estas dos naciones europeas:"
-    ],
-
-    "geographyAnswers" : [
+        ],
+        "mathematics" :[
+            "Find the total mass of 10 packets of fragrant rice, each weighing 2.5kg, and 4 packets of sweets,  each weighing 250 g per packet. Give your answer in kg.",
+            "Chest A weighs 47.5 kg whereas chest B weighs 47 100 g. Find the difference in their mass, in  kg.",
+            "Rohana bought a dozen packets of guava juice. If each packet contains 375 ml of juice, what is the total volume, in litres, of guava juice?",
+            "A bag costs RM39.90, a shirt costs RM59.90 and a pair of trousers costs RM79.90.  What is the total cost?",
+            "The selling price of a chicken is RM9.00. If Mak Rinna buys 85   chickens for her restaurant, how much does she have to pay?",
+            "Marissa has 26 750 bottle caps. Her sister gives her another 37 500 bottle caps. If Marissa gives away 50 500 bottle caps for recycling, how many bottle caps does she have now?",
+            "In conjunction with the festive season, 834 750 festive cards were printed. These cards were distributed to 7 distribution centres around the country. How many cards did each distribution centre receive?",
+            "Mr Ramli has a savings of  RM47 574 in a bank. He withdraws RM15 789 to pay for his house. How much savings does he have left?",
+            "The total mass of Hamid and Yaakub is 71.34 kg. Hamid weighs 35.92 kg. Find Yaakub’s mass, in kg.",
+            "A factory has 40 workers. 7/10 of them are men. How many women are there in the factory?"
+        ]
+    },
+    "answers":{
+        "games" : [
+            ["Sonic", "Kirby", "Mario", "Link"],
+            ["Super Smash Bros", "Dave guy", "Cars 2", "Sonic free riders"],
+            ["Sega", "Microsoft", "Sony", "The founder"],
+            ["The Game Boy", "The WII U", "The Megadrive", "The Virtual Boy"],
+            ["Kirby Tilt'n Tumble", "Kirby and The Fighters", "Kirby Air Ride", "Kirby Battle!"],
+            ["Since Donkey Kong", "Since Mario 3", "Since Super Mario World", "Since Super Mario Brothers"],
+            ["Boo", "Koopa", "Mr. Game & Watch", "Luigi"],
+            ["Nintendo 64", "Nintendo Wii", "XBox", "Play Station"],
+            ["Minecraft", "Fornite", "Call of Duty", "GTA V"],
+            ["2005", "2003", "2000", "1997"]
+        ],
+        "geography" :[
         [
             "Perú",
             "Brasil",
@@ -91,19 +129,62 @@
             "Francia y Suiza",
             "España y Portugal"
         ]
-    ],
+        ],
+        "mathematics" :[
+            ["2.06 kg", "3.5 kg", "2.6 kg", "26kg"],
+            ["0.4 kg", "400g", "400kg", "40g"],
+            ["40.5 litres", "4.5 litres", "0.45 ml", "4500 ml"],
+            ["RM189.60", "RM179.70", "RM169.70", "RM159.70"],
+            ["RM725", "RM765", "RM756", "RM785"],
+            ["13 750", "12 650", "12 750", "13 650"],
+            ["109 250", "109 350", "119 350", "119 250"],
+            ["RM31 785", "RM32 785", "RM32 875", "RM30 785"],
+            ["35.52 kg","35.42 kg", "34.52 kg", "34.42 kg"],
+            [28, 25, 12, 15]
+        ]
 
+    },
+    
     "correctAnswers" : {
-        "¿En qué país puedes visitar Machu Picchu?" : "Perú",
-        "¿Cuál es la nación más poblada de América del Sur?" : "Brasil",
-        "¿Qué nación regula la escalada en el Monte Everest?" : "Nepal",
-        "¿En qué país europeo está ubicada Transilvania?" : "Rumania",
-        "¿Qué nación asiática tiene la segunda mayor población de cualquier país del mundo?" : "India",
-        "¿Qué masa de agua separa a África de Europa?" : "Estrecho de Gibraltar",
-        "Si excluyes a Rusia, ¿qué país tiene la población más grande de Europa?" : "Alemania",
-        "El lago Titicaca se encuentra en la frontera entre estas dos naciones." : "Bolivia y Perú",
-        "¿Cuál es el país más grande del mundo en términos de superficie terrestre?" : "Rusia",
-        "Andorra está ubicada entre estas dos naciones europeas:" : "España y Francia"
+        "games":[
+            "Mario",
+            "Super Smash Bros",
+            "Sega",
+            "The Virtual Boy",
+            "Kirby Battle!",
+            "Since Super Mario Brothers",
+            "Mr. Game & Watch",
+            "Nintendo 64",
+            "Fornite",
+            "2003"
+        ],
+        "geography":[
+            "Perú",
+            "Brasil",
+            "Nepal",
+            "Rumania",
+            "India",
+            "Estrecho de Gibraltar",
+            "Alemania",
+            "Bolivia y Perú",
+            "Rusia",
+            "España y Francia"
+        ],
+        "mathematics":[
+            "26kg",
+            "0.4 kg",
+            "4.5 litres",
+            "RM179.70",
+            "RM765",
+            "13 750",
+            "119 250",
+            "RM31 785",
+            "35.42 kg",
+            "12"
+        ]
     }
 
 }
+
+ 
+
