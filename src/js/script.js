@@ -321,7 +321,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     $("#leaderboard").html(html);
     $("#end-message").html(`
-    ${user} <span class="text-green-400 text-4xl">${score}</span>
+    ${user} You got <span class="text-green-400 text-4xl">${score}</span>
             correct answers`);
   }
 });
