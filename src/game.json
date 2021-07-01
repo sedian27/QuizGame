@@ -1,22 +1,4 @@
 {
-    "text" : {
-        "login" : [
-            ["Ingrese su nombre de usuario"],
-            ["Empezar"]
-        ],
-        "category" : [
-            ["Seleccione una categoría"],
-            ["Juegos"],
-            ["Geografía"],
-            ["Matematicas"],
-            ["Historia"]
-        ],
-        "results" : [
-            ["Resultado"],
-            ["Respuestas correctas"]
-        ]
-    },
-
     "categories" :{
         "games" : [
         "who is the face of nintedo?",
@@ -31,16 +13,16 @@
         "When did the first Call Of Duty come out"
         ],
         "geography" : [
-        "¿En qué país puedes visitar Machu Picchu?",
-        "¿Cuál es la nación más poblada de América del Sur?",
-        "¿Qué nación regula la escalada en el Monte Everest?",
-        "¿En qué país europeo está ubicada Transilvania?",
-        "¿Qué nación asiática tiene la segunda mayor población de cualquier país del mundo?",
-        "¿Qué masa de agua separa a África de Europa?",
-        "Si excluyes a Rusia, ¿qué país tiene la población más grande de Europa?",
-        "El lago Titicaca se encuentra en la frontera entre estas dos naciones.",
-        "¿Cuál es el país más grande del mundo en términos de superficie terrestre?",
-        "Andorra está ubicada entre estas dos naciones europeas:"
+        "In which country can you visit Machu Picchu?",
+        "What is the most populous nation in South America?",
+        "Which nation regulates climbing on Mount Everest?",
+        "In which European country is Transylvania located?",
+        "Which Asian nation has the second largest population of any country in the world?",
+        "What body of water separates Africa from Europe?",
+        "If you exclude Russia, which country has the largest population in Europe?",
+        "Lake Titicaca is located on the border between these two nations.",
+        "What is the largest country in the world in terms of land area?",
+        "Andorra is located between these two European nations:"
         ],
         "mathematics" :[
             "Find the total mass of 10 packets of fragrant rice, each weighing 2.5kg, and 4 packets of sweets,  each weighing 250 g per packet. Give your answer in kg.",
@@ -53,6 +35,18 @@
             "Mr Ramli has a savings of  RM47 574 in a bank. He withdraws RM15 789 to pay for his house. How much savings does he have left?",
             "The total mass of Hamid and Yaakub is 71.34 kg. Hamid weighs 35.92 kg. Find Yaakub’s mass, in kg.",
             "A factory has 40 workers. 7/10 of them are men. How many women are there in the factory?"
+        ],
+        "history":[
+            "Where were the atomic bombs dropped?",
+            "Blitzkrieg means",
+            "What economic system developed after the Chinese Civil War?",
+            "Who succeeded John F. Kennedy as President of the United States?",
+            "More than 60 Americans were held hostage by Islamic revolutionaries for over a year in which country?",
+            "The United States and the Soviet Union had an intense standoff over the presence of Soviet missiles in what country?",
+            "The Bay of Pigs was an attempt to overthrow what government leader?",
+            "The significance of the Battle of Midway is that the",
+            "Kristallnacht was a night in which",
+            "Hitler's Final Solution was a plan to"
         ]
     },
     "answers":{
@@ -70,64 +64,64 @@
         ],
         "geography" :[
         [
-            "Perú",
-            "Brasil",
+            "Peru",
+            "Brazil",
             "Chile",
             "Argentina"
         ],
         [
-            "Perú",
-            "Brasil",
+            "Peru",
+            "Brazil",
             "Chile",
             "Argentina"
         ],
         [
             "Nepal",
-            "Japón",
-            "Pakistán",
+            "Japan",
+            "Pakistan",
             "China"
         ],
         [
-            "Polonia",
+            "Poland",
             "Bulgaria",
-            "Rumania",
-            "Ucrania"
+            "Romania",
+            "Ukraine"
         ],
         [
-            "Japón",
+            "Japan",
             "India",
-            "Pakistán",
-            "Irán"
+            "Pakistan",
+            "Iran"
         ],
         [
-            "Estrecho de Gibraltar",
-            "Mar de África",
-            "Cabo de buena esperanza",
-            "Mar Balear"
+            "Strait of Gibraltar",
+            "Sea of ​​Africa",
+            "Cape of Good Hope",
+            "Balearic Sea"
         ],
         [
-            "Bélgica",
-            "Alemania",
-            "Francia",
-            "Irán"
+            "Belgium",
+            "Germany",
+            "France",
+            "Iran"
         ],
         [
-            "Paraguay y Bolivia",
-            "Brasil y Chile",
-            "Bolivia y Perú",
-            "Uruguay y Paraguay"
+            "Paraguay and Bolivia",
+            "Brazil and Chile",
+            "Bolivia and Peru",
+            "Uruguay and Paraguay"
         ],
         [
-            "Estados Unidos",
+            "USA",
             "China",
-            "Rusia",
-            "Brasil"
+            "Russia",
+            "Brazil"
         ],
         [
-            "España y Francia",
-            "Italia y Suiza",
-            "Francia y Suiza",
-            "España y Portugal"
+            "Spain and France",
+            "Italy and Switzerland",
+            "France and Switzerland",
+            "Spain and Portugal"
         ]
         ],
         "mathematics" :[
@@ -141,6 +135,18 @@
             ["RM31 785", "RM32 785", "RM32 875", "RM30 785"],
             ["35.52 kg","35.42 kg", "34.52 kg", "34.42 kg"],
             [28, 25, 12, 15]
+        ],
+        "history" : [
+            ["Hiroshima & Nagasaki", "Iwo Jima & Hiroshima", "Tokyo & Iwo Jima", "Nagasaki & Iwo Jima"],
+            ["Long war", "Lightening war", "bombing attack", "peace treaty"],
+            ["Democracy", "Capitalism", "Socialism", "Communism"],
+            ["Richard Nixon", "Dwight Eisenhower", "Gerald Ford", "Lyndon Johnson"],
+            ["Iran", "Iraq", "Sudan", "Kuwait"],
+            ["Mexico","Cuba", "Cuba", "China"],
+            ["Jogn F. Kennedy", "Daniel Ortega", "Fidel Casto", "Mao Zedong"],
+            ["Japanese navy was destroyed", "U.S nay was destroyed", "Fidel Castro was murdered", "Led to the attack on Pearl Harbor"],
+            ["Jews attacked Nazis", "Nazis attacked jews", "Americans attacked jews", "Russians attacked Nazis"],
+            ["Spare all jews.","Rule the world", "Find peace with NATO", "Kill all jews"]
         ]
 
     },
@@ -159,16 +165,16 @@
             "2003"
         ],
         "geography":[
-            "Perú",
-            "Brasil",
+            "Peru",
+            "Brazil",
             "Nepal",
-            "Rumania",
+            "Romania",
             "India",
-            "Estrecho de Gibraltar",
-            "Alemania",
-            "Bolivia y Perú",
-            "Rusia",
-            "España y Francia"
+            "Strait of Gibraltar",
+            "Germany",
+            "Bolivia and Peru",
+            "Russia",
+            "Spain and France"
         ],
         "mathematics":[
             "26kg",
@@ -181,6 +187,18 @@
             "RM31 785",
             "35.42 kg",
             "12"
+        ],
+        "history":[
+            "Hiroshima & Nagasaki",
+            "Lightening war",
+            "Communism",
+            "Lyndon Johnson",
+            "Iran",
+            "Cuba",
+            "Fidel Castro",
+            "Japanese navy was destroyed",
+            "Nazis attacked jew",
+            "Kill all jews"
         ]
     }
 

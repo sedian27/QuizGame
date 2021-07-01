@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let user = "",
     categoryName = "",
     score = 0,
-    arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+    arr = [];
 
   async function getData() {
     const data = await fetch("src/game.json");
@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
             class="uppercase text-2xl text-white font-bold md:text-4xl"
             id="category"
           ></h1>
-          <div class="bg-white rounded-2xl text-lg md:text-2xl p-3 pt-16 w-29 h-35">
+          <div class="bg-white rounded-2xl text-lg md:text-2xl p-3 w-29">
             <h2 id="question" class="text-blue-900 font-bold"></h2>
             <div id="answers" class="flex flex-col"></div>
           </div>
@@ -162,9 +162,16 @@ document.addEventListener("DOMContentLoaded", () => {
   let db = firebase.firestore();
 
   // Randomize questions
-  arr = arr.sort(() => {
-    return Math.random() - 0.5;
-  });
+  function loadQuestionsRandom(category) {
+    getData().then((data) => {
+      for (let i = 0; i < data.categories[category].length; i++) {
+        arr.push(i);
+      }
+      arr = arr.sort(() => {
+        return Math.random() - 0.5;
+      });
+    });
+  }
 
   // Save username and show section category
   const userForm = $("#user-form");
@@ -195,9 +202,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // Get the category and load the questions.
   function getButtonClicked(e) {
     if (e.target.nodeName === "BUTTON") {
+      categoryName = e.target.getAttribute("id");
+      loadQuestionsRandom(categoryName);
       showSection(sectionQuestion);
       setTimeout(() => {
-        categoryName = e.target.getAttribute("id");
         $("#category").text(categoryName);
         loadQuiz();
       }, 500);
