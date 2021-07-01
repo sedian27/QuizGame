@@ -21,7 +21,6 @@
 
 - [About](#about)
 - [Built Using](#built_using)
-- [Acknowledgments](#acknowledgement)
 
 ## 🧐 About <a name = "about"></a>
 
